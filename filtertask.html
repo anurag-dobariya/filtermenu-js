@@ -1,0 +1,318 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .btn1{
+        background-color: black;
+        color: white;
+        font-size: 20px;
+        border: 1px solid white;
+        padding: 5px 15px;
+        font-weight: 600;
+        border-radius: 5px;
+        margin-right: 25px;
+        transition: 0.25s linear all ;
+    }
+    .btn1:hover{
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+    }
+    a{
+        text-decoration: none;
+    }
+    .btn2{
+        background-color: #d31d2e;
+        color: white;
+        font-size: 20px;
+        border: 1px solid white;
+        padding: 5px 15px;
+        font-weight: 600;
+        border-radius: 5px;
+        margin-right: 25px;
+        transition: 0.25s linear all ;
+    }
+    .btn2:hover{
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+    }
+    .images{
+        height: 250px;
+        /* width: 200px; */
+        object-fit: cover;
+    }
+</style>
+<div class="container">
+    <div class=" my-4 d-flex">
+        
+            <button onclick="viewAll()" class="btn1 ">All</button>
+        
+            <button onclick="tataRec()" class="btn1 ">Tata</button>
+        
+            <button onclick="toyotaRec()" class="btn1 ">Toyota</button>
+        
+            <button onclick="suzukiRec()" class="btn1 ">Maruti Suzuki</button>
+        
+            <button onclick="skodaRec()" class="btn1 ">Skoda</button>
+
+            <button onclick="hyundaiRec()" class="btn1 ">Hyundai</button>
+        
+    </div>
+
+    <div class="row" id="AllFilters">
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+
+let data = [
+        {
+            name : "Nano",
+            price : "1,50,000",
+            image : "nano.jpg",
+            category : "tata"
+        },
+        {
+            name : "Fortuner",
+            price : "39,00,000",
+            image : "fortuner.jpg",
+            category : "toyota"
+        },
+        {
+            name : "Brezza",
+            price : "15,00,000",
+            image : "brezza.jpg",
+            category : "suzuki"
+        },
+        {
+            name : "Octavia",
+            price : "28,00,000",
+            image : "octavia.jpg",
+            category : "skoda"
+        },
+        {
+            name : "Creta",
+            price : "17,00,000",
+            image : "creta.jpg",
+            category : "hyundai"
+        },
+        {
+            name : "Nexon",
+            price : "14,50,000",
+            image : "nexon.jpg",
+            category : "tata"
+        },
+        {
+            name : "Venue",
+            price : "10,00,000",
+            image : "venue.jpg",
+            category : "hyundai"
+        },
+        {
+            name : "Urban Cruiser Hyryder",
+            price : "39,00,000",
+            image : "Toyota Urban Cruiser Hyryder.jpg",
+            category : "toyota"
+        },
+        {
+            name : "Verna",
+            price : "16,00,000",
+            image : "verna.jpg",
+            category : "hyundai"
+        },
+        {
+            name : "Harrier",
+            price : "10,50,000",
+            image : "harrier.jpg",
+            category : "tata"
+        },
+        {
+            name : "Swift",
+            price : "9,00,000",
+            image : "swift.jpeg",
+            category : "suzuki"
+        },
+        {
+            name : "Rapid",
+            price : "22,00,000",
+            image : "rapid.jpg",
+            category : "skoda"
+        },
+        {
+            name : "Ciaz",
+            price : "12,00,000",
+            image : "ciaz.jpg",
+            category : "suzuki"
+        },
+        {
+            name : "Land Cruiser",
+            price : "39,00,000",
+            image : "Land Cruiser.jpg",
+            category : "toyota"
+        },
+        {
+            name : "Superb",
+            price : "20,00,000",
+            image : "superb.jpeg",
+            category : "skoda"
+        },
+        
+               
+    ];
+
+
+    viewAll();
+    function viewAll()
+    {
+        let tbl = "";
+        data.map((val)=>{
+            tbl += `
+                <div class="col-md-4 pb-4">
+                    <div class="card">
+                        <img src="${val.image}"  class="card-img-top images" >
+                        <div class="card-body">
+                        <h5 class="card-title">${val.name}</h5>
+                        <p class="card-text">${val.category}</p>
+                        <p class="card-text">${val.price}</p>
+                        <a href="#" class="btn2">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            `
+        })
+
+        document.getElementById('AllFilters').innerHTML = tbl;
+    }
+
+    function tataRec(){
+        let category = "tata";
+        let tbl = "";
+        data.map((val)=>{
+
+            if(val.category == category)
+            {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}"  class="card-img-top images" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.category}</p>
+                            <p class="card-text">${val.price}</p>
+                            <a href="#" class="btn2">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+            
+        })
+        document.getElementById('AllFilters').innerHTML = tbl;
+    }
+
+    function toyotaRec(){
+        let category = "toyota";
+        let tbl = "";
+        data.map((val)=>{
+
+            if(val.category == category)
+            {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}" class="card-img-top images alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.category}</p>
+                            <p class="card-text">${val.price}</p>
+                            <a href="#" class="btn2">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+            
+        })
+        document.getElementById('AllFilters').innerHTML = tbl;
+    }
+
+    function suzukiRec(){
+        let category = "suzuki";
+        let tbl = "";
+        data.map((val)=>{
+
+            if(val.category == category)
+            {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}" class="card-img-top images" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.category}</p>
+                            <p class="card-text">${val.price}</p>
+                            <a href="#" class="btn2">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+            
+        })
+        document.getElementById('AllFilters').innerHTML = tbl;
+    }
+
+    function skodaRec(){
+        let category = "skoda";
+        let tbl = "";
+        data.map((val)=>{
+
+            if(val.category == category)
+            {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}" class="card-img-top images" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.category}</p>
+                            <p class="card-text">${val.price}</p>
+                            <a href="#" class="btn2">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+            
+        })
+        document.getElementById('AllFilters').innerHTML = tbl;
+    }
+
+    function hyundaiRec(){
+        let category = "hyundai";
+        let tbl = "";
+        data.map((val)=>{
+
+            if(val.category == category)
+            {
+                tbl += `
+                    <div class="col-md-4 pb-4">
+                        <div class="card">
+                            <img src="${val.image}" class="card-img-top images" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">${val.name}</h5>
+                            <p class="card-text">${val.category}</p>
+                            <p class="card-text">${val.price}</p>
+                            <a href="#" class="btn2">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+            
+        })
+        document.getElementById('AllFilters').innerHTML = tbl;
+    }
+
+</script>
